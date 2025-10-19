@@ -24,10 +24,12 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Cordova and Android SDK
-        run: |
-          npm install -g cordova
-          echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-33" "build-tools;33.0.0"
+  - name: Install Cordova and Android SDK
+    run: |
+      npm install -g cordova
+      yes | sudo -E ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null
+      echo "y" | sudo -E ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager "platforms;android-33" "build-tools;33.0.0"
+
           
       - name: Build Android App Bundle (AAB)
         run: |
