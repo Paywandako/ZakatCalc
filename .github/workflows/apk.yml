@@ -27,9 +27,6 @@ jobs:
 
       - name: Add Android platform
         run: cordova platform add android
-    
-      - name: Generate resources
-        run: cordova resources android
 
       - name: Build debug APK
         run: cordova build android --debug
