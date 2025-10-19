@@ -30,19 +30,16 @@ jobs:
           yes | sudo -E env "PATH=$PATH" ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null
           echo "y" | sudo -E env "PATH=$PATH" ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager "platforms;android-33" "build-tools;33.0.0"
 
-
       - name: Build Android App (APK)
         run: |
           cordova platform add android
           cordova build android --release
-          
 
-  - name: List build output files
-    run: ls -R platforms/android/app/build/outputs/
+      - name: List build output files
+        run: ls -R platforms/android/app/build/outputs/
 
-  - name: Upload APK artifact
-    uses: actions/upload-artifact@v4
-    with:
-      name: app-release-apk
-      path: platforms/android/app/build/outputs/apk/release/*.apk
-
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: platforms/android/app/build/outputs/apk/release/*.apk
