@@ -31,9 +31,6 @@ jobs:
       - name: Add Android platform
         run: cordova platform add android
 
-      - name: Generate resources
-        run: cordova resources android
-
       - name: Build release AAB
         run: cordova build android --release --packageType=bundle
 
