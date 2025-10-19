@@ -33,10 +33,7 @@ jobs:
       - name: Build Android App (APK)
         run: |
           cordova platform add android
-          cordova build android --release
-
-      - name: List build output files
-        run: ls -R platforms/android/app/build/outputs/
+          cordova build android --release -- --apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
